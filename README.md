@@ -28,7 +28,14 @@ data/DRKG/embed/DRKG_TransE_l2_entity.npy
 data/DRKG/embed/entities.tsv
 data/DRKG/embed/relations.tsv
 ```
-
+- download curated chemical database from [DrugBank](https://go.drugbank.com/releases/latest) and locate the file as
+```
+data/CTD/drugbank_drugs.csv
+```
+- download curated chemical database from [ChEMBL](https://chembl.gitbook.io/chembl-interface-documentation/downloads) and locate the file as
+```
+data/CTD/chembl_compound.csv
+```
 ### 3. run notebooks in the following order
 - `preprocessing.ipynb`
 
