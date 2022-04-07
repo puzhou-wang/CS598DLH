@@ -1,17 +1,21 @@
 # CS598DLH
 reproducibility project for CS598 Deep Learning in Healthcare
 
-The paper reproduced here is *Drug repurposing for COVID-19 using graph neural network with genetic, mechanistic, and epidemiological validation* (DOI: [10.21203/rs.3.rs-114758/v1](https://dx.doi.org/10.21203%2Frs.3.rs-114758%2Fv1)).
+## citation to the original paper
+Hsieh, K., Wang, Y., Chen, L., Zhao, Z., Savitz, S., Jiang, X., Tang, J. and Kim, Y., 2020. Drug repurposing for COVID-19 using graph neural network with genetic, mechanistic, and epidemiological validation. *Research Square*.
+
+## link to the original paper's repo
+https://github.com/yejinjkim/drug-repurposing-graph
 
 ## instructions to run the codes
 The codes have been tested in Python 3.7.
 
-### 1. install required packages
+### 1. install required packages (i.e., dependencies)
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. download the required data
+### 2. data download instructions
 - obtain drug-gene interactions, pathways, and phenotype data of COVID-19 from [CTDbase](https://ctdbase.org/) and locate the files under `./data/CTD/` as shown in the examples below
 ```
 data/CTD/drug-gene-CTD_C0000657245_ixns.tsv
@@ -46,3 +50,74 @@ data/CTD/chembl_compound.csv
 - `prediction_model_comparison.ipynb`
 
     This notebook file will train different prediction models and save their performance in a single csv file.
+
+## table of results
+<table>
+<thead>
+  <tr>
+    <th rowspan="2">Embedding Method</th>
+    <th rowspan="2">Accuracy</th>
+    <th colspan="5">Ranking models</th>
+  </tr>
+  <tr>
+    <th>Logistic Regression</th>
+    <th>Support Vector Machines</th>
+    <th>XGBoost</th>
+    <th>Random Forest</th>
+    <th>Neural network ranking</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td rowspan="2">COVID-19 alone</td>
+    <td>AUROC</td>
+    <td>0.6932</td>
+    <td>0.6586</td>
+    <td>0.6519</td>
+    <td>0.5822</td>
+    <td>0.6553</td>
+  </tr>
+  <tr>
+    <td>AUPRC</td>
+    <td>0.1017</td>
+    <td>0.1319</td>
+    <td>0.0842</td>
+    <td>0.0666</td>
+    <td>0.0861</td>
+  </tr>
+  <tr>
+    <td rowspan="2">DRKG alone</td>
+    <td>AUROC</td>
+    <td>0.8436</td>
+    <td>0.8842</td>
+    <td>0.8579</td>
+    <td>0.8432</td>
+    <td>0.8658</td>
+  </tr>
+  <tr>
+    <td>AUPRC</td>
+    <td>0.1839</td>
+    <td>0.2579</td>
+    <td>0.1426</td>
+    <td>0.1331</td>
+    <td>0.1744</td>
+  </tr>
+  <tr>
+    <td rowspan="2">hybrid</td>
+    <td>AUROC</td>
+    <td>0.9004</td>
+    <td>0.6670</td>
+    <td>0.8746</td>
+    <td>0.8698</td>
+    <td>0.8915</td>
+  </tr>
+  <tr>
+    <td>AUPRC</td>
+    <td>0.2656</td>
+    <td>0.2637</td>
+    <td>0.2050</td>
+    <td>0.2120</td>
+    <td>0.2400</td>
+  </tr>
+</tbody>
+</table>
